@@ -101,17 +101,15 @@
 > 引用のテスト
 > 段落と同じような扱いを受けている。改行するときは末尾に□□   
 > と半角スペースを2つ入れることで改行になる
-
+>
 > Markdownで`1行`あけることで行が開く
 > > ネストした引用のテスト
 > > > さらにネスト引用
-
-
+>
 > 引用された文章です　
-
+>
 > 引用された文章です
-
-
+>
 > ### hタグのテスト
 > 
 > * リストのテスト1
@@ -124,7 +122,7 @@
 
 
 ```
-また、このように```で囲むことでも実現できる。
+また、`` `このように` ``で囲むことでも実現できる。
 ```
 
 ~~~
@@ -145,20 +143,28 @@
 
 # 表のテスト
 
+## type 1
+
  First Header  | Second Header 
  ------------- | ------------- 
  Row1 Cell1	| Row1 Cell2	
  Row2 Cell1	| Row2 Cell2	
+
+## type 2
 
 | First Header | Second Header | Third Header |
 | ------------ | ------------- | ------------ |
 | Content Cell | Content Cell  | Content Cell |
 | Content Cell | Content Cell  | Content Cell |
 
+## type 3
+
 First Header | Second Header | Third Header
 :----------- | :-----------: | -----------:
 Left		 | Center		| Right
 Left		 | Center		| Right
+
+## type 4
 
 -------------------------------------------------------------
  Centered   Default           Right Left
@@ -171,3 +177,15 @@ Left		 | Center		| Right
                                     the blank line between
                                     rows.
 -------------------------------------------------------------
+
+# シンタックスハイライトのテスト
+	
+~~~~ {#mycode .haskell .numberLines startFrom="50"}
+qsort []     = []
+qsort (x:xs) = qsort (filter (< x) xs) ++ [x] ++
+               qsort (filter (>= x) xs)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~
+Pandocv1.9.3は文書の最後に改行を入れないと最後の文の変換がうまくいかないことがあるので注意。
+~~~
